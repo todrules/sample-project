@@ -9,11 +9,12 @@
     "npm": "5.2.0"
   },
     "scripts": {
-        "clean": "ionic-app-scripts clean",
-        "build": "ionic-app-scripts build",
-        "lint": "ionic-app-scripts lint",
-        "ionic:build": "ionic-app-scripts build",
-        "ionic:serve": "ionic-app-scripts serve"
+      "clean": "ionic-app-scripts clean",
+      "build": "ionic-app-scripts build",
+      "lint": "ionic-app-scripts lint",
+      "ionic:build": "ionic-app-scripts build",
+      "ionic:serve": "ionic-app-scripts serve",
+      "start": "node ./server/bin/www.js"
     },
     "dependencies": {
         "@angular/animations": "^4.1.3",
