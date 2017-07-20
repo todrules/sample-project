@@ -1,0 +1,60 @@
+<ion-header no-border style="box-shadow: none;">
+  <ion-navbar color="primary" no-border style="box-shadow: none !important; border-bottom: 1px solid #fff;">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span style="font-weight: 400 !important;">{{ title }}</span></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+
+
+<div fxLayout="column" fxLayoutAlign="stretch center">
+  <ion-card style="width: 100%; max-width: 400px; min-height: 400px; box-shadow: 0 1px 5px rgba(0,0,0,0.07);">
+  <ion-card-content>
+  <ion-card-header>
+    <ion-card-title><h2 style="color: #666;">{{title}}</h2></ion-card-title>
+  </ion-card-header>
+    <form #cardForm="ngForm" (ngSubmit)="createToken()">
+      <div fxLayout="column" fxLayoutAlign="start start" style="margin-top: 30px;">
+        <div fxLayout="row" fxLayoutAlign="start start" style="margin: 5px;">
+          <ion-label style="width: 100px;" stacked >Card number</ion-label>
+            <input name="number" style="width: 200px;" placeholder="4242 4242 4242 4242" type="tel" id="number" [(ngModel)]="formCard.number" ccNumber>
+
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start start" style="margin: 5px;">
+          <ion-label style="width: 100px;" stacked>Expiration Date</ion-label>
+          <input  name="exp_month" placeholder="01/2019" style="width: 200px;" id="exp_month" type="tel" [(ngModel)]="formCard.exp_month" ccExp >
+
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start start" style="margin: 5px;">
+          <ion-label style="width: 100px;" stacked>CVC</ion-label>
+          <input name="cvc" maxlength="4" style="width: 200px;" placeholder="123" id="cvc" autocomplete="off" type="tel" [(ngModel)]="formCard.cvc" ccCVC >
+
+        </div>
+        <div style="width: 100%; " fxLayout="row" fxLayoutAlign="end end">
+          <button color="marine" style="margin-right: 45px; margin-top: 30px;" ion-button type="submit">Submit Payment</button>
+        </div>
+
+      </div>
+    </form>
+
+  </ion-card-content>
+
+
+  </ion-card>
+  <div *ngIf="diag2" style="max-width: 400px; color: #444; margin-top: 8px; overflow: scroll;">
+    Request:
+    <div *ngFor="let items of diag2.split(',')">
+      {{ items }}
+    </div>
+  </div>
+  <div *ngIf="diag" style="max-width: 400px; color: #444; margin-top: 4px; overflow: scroll;">
+    Response:
+    <div *ngFor="let items of diag.split(',')">
+        {{ items }}
+    </div>
+  </div>
+
+</div>
+</ion-content>

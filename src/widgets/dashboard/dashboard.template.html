@@ -1,0 +1,61 @@
+<ion-header no-border style="box-shadow: none;">
+  <ion-navbar color="primary" no-border style="box-shadow: none !important; border-bottom: 1px solid #fff;">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span style="font-weight: 400 !important;">{{ title }}</span></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row align-items-center justify-content-center>
+      <ion-col align-self-center>
+        <ion-card class="dash-card">
+          <ion-card-title style="color: #666; font-weight: 300;">Monthly Expenses</ion-card-title>
+          <ion-card-content>
+            <div style="display: block;">
+              <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+            </div>
+          </ion-card-content>
+          <div>
+            <button ion-button color="secondary" (click)="randomize()">Randomize</button>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center justify-content-center>
+      <ion-col align-self-center>
+        <ion-card class="dash-card">
+          <ion-card-title style="color: #666; font-weight: 300;">Payment Types</ion-card-title>
+          <ion-card-content>
+            <div style="display: block">
+              <canvas baseChart [colors]="doughnutChartColors" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+            </div>
+          </ion-card-content>
+          <div>
+            <button ion-button color="secondary" (click)="updatePieChart()">Update Data</button>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col align-self-center>
+        <ion-card class="dash-card" style="width: 100%;">
+          <ion-card-title style="color: #666; font-weight: 300;">Quarterly Sales</ion-card-title>
+          <ion-card-content>
+            <div style="display: block">
+              <canvas baseChart [datasets]="barChartData" [colors]="barChartColors" [labels]="barChartLabels" [options]="barChartOptions"
+                [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+            </div>
+          </ion-card-content>
+          <div>
+            <button ion-button color="secondary" (click)="updateBarChart()">Update Data</button>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
+

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Create Neural Network</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div style="border-top: 1px solid rgba(224,224,224,1);" padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h4>Create Neural Network</h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label color="primary" stacked>Input Size</ion-label>
+          <ion-input type="number" #inputsize value="2"></ion-input>
+        </ion-col>
+        <ion-col>
+              <ion-label color="primary" stacked>Output Size</ion-label>
+              <ion-input type="number" #outputsize value="1"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+              <ion-label color="primary" stacked># Of Mem. Blocks</ion-label>
+              <ion-input type="number" #nummemblocks value="3"></ion-input>
+        </ion-col>
+        <ion-col>
+              <ion-label color="primary" stacked>Size of Mem. Blks</ion-label>
+              <ion-input type="number" #memblocksize value="4"></ion-input>
+          <button ion-button padding color="secondary" (click)="createNetwork(inputsize.value, outputsize.value, nummemblocks.value, memblocksize.value)">Create Network
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <svg class="draw" id="mynet" width="400" height="400"></svg>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

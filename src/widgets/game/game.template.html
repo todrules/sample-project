@@ -1,0 +1,78 @@
+<ion-content>
+  <div style="border-top: 1px solid rgba(224,224,224,1);" padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="myCard" style="min-width: 200px; max-width: 500px;">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <h4 style="color: #153450;">Players</h4>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <h1 style="color: #3a3a3a;">{{ players }}</h1>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="myCard" style="min-width: 200px; max-width: 500px;">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <h4 style="color: #153450;">Food</h4>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <h1 style="color: #3a3a3a;">{{ foods }}</h1>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="myCard" style="min-width: 200px; max-width: 500px;">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <h4 style="color: #153450;">Iteration</h4>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <h1 style="color: #3a3a3a;">{{ iteration }}</h1>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="myCard" style="min-width: 200px; max-width: 500px;">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <h4 style="color: #153450;">Highest Score</h4>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <h1 style="color: #3a3a3a;">{{ highestScore }}</h1>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <canvas #mycanvas style="width: 100%; height: 800px; margin-top: 20px;"></canvas>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>
