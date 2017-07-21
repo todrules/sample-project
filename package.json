@@ -4,18 +4,18 @@
     "author": "Ionic Framework",
     "homepage": "http://ionicframework.com/",
     "private": true,
-  "engines": {
-    "node": "8.1.4",
-    "npm": "5.2.0"
-  },
-  "main": "server/server.js",
+    "engines": {
+        "node": "8.1.4",
+        "npm": "5.2.0"
+    },
+    "main": "server/server.js",
     "scripts": {
-      "clean": "ionic-app-scripts clean",
-      "build": "ionic-app-scripts build",
-      "lint": "ionic-app-scripts lint",
-      "ionic:build": "ionic-app-scripts build",
-      "ionic:serve": "ionic-app-scripts serve",
-      "start": "node ./server/server.js"
+        "clean": "ionic-app-scripts clean",
+        "build": "ionic-app-scripts build",
+        "lint": "ionic-app-scripts lint",
+        "ionic:build": "ionic-app-scripts build",
+        "ionic:serve": "ionic-app-scripts serve",
+        "start": "node ./server/server.js"
     },
     "dependencies": {
         "@angular/animations": "^4.1.3",

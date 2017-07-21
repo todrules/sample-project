@@ -10,7 +10,19 @@
   <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4e8ef7">
-
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyASeMJAOsuaOlTDhVAKQC7oTTz7bUZEhNQ",
+      authDomain: "chatterware.firebaseapp.com",
+      databaseURL: "https://chatterware.firebaseio.com",
+      projectId: "chatterware",
+      storageBucket: "chatterware.appspot.com",
+      messagingSenderId: "550980441083"
+    };
+    firebase.initializeApp(config);
+  </script>
   <!-- cordova.js required for cordova apps -->
   <script src="cordova.js"></script>
 
