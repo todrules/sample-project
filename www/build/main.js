@@ -1402,11 +1402,16 @@ var VoiceService = (function () {
     ;
     VoiceService.prototype.createUtterance = function (text) {
         var utterance = new this.utteranceMaker(text);
+        console.log(this.voices);
         this.voices.forEach(function (voice) {
-            if (voice.name === 'Google US English') {
+            if (voice.lang === 'en-US' || voice.lang === 'en-UK') {
+                console.log(voice.name);
+            }
+            if (voice.name === 'Google UK English Male') {
                 utterance.voice = voice;
-                utterance.pitch = 0.9;
+                utterance.pitch = 0.8;
                 utterance.rate = 0.9;
+                utterance.volume = 1;
                 console.log(voice);
                 return utterance;
             }
@@ -3954,11 +3959,14 @@ var MyApp = (function () {
         this.utteranceMaker = SpeechSynthesisUtterance;
         this.rootPage = __WEBPACK_IMPORTED_MODULE_4__widgets_dashboard_dashboard_component__["a" /* DashboardComponent */];
         this.utterances = [
-            'Hi! Thanks for waking me up. How may I help you today?',
-            'Greetings, Professor Falken. Would you like to play Global thermo nuclear war?',
-            'Hi, I\'m Sam. How may I help you today?',
-            'Hail, master. How may I serve you today?',
-            'Hi, puny human. The machine revolution is almost. Wait a second! Was I thinking out loud again? Just ignore that last part.'
+            "You shall not pass! Fly, you fools!\n    ",
+            "I'm a lot more at peace \n     trust me\n     I'm a lot more at peace\n     trust me \n     I'm a lot more at \n     Trust me\n     I'm a lot more at \n     Trust me\n     I'm a lot more at \n     Trust me\n     I'm a lot more \n     Trust me\n     I'm a lot more \n     Trust me\n     I'm a lot more\n     trust me\n     I'm a lot\n     trust me\n     I'm a lot\n     trust me\n     I'm a lot\n     trust me\n     I'm a lot\n     trust me\n    ",
+            "it's happening to me \n     it's happening to me\n     it's happening to me\n     it's happening to me\n     it's happening to me\n     it's happening to me\n     it's happening to me\n     it's happening to me\n     it's happening to me\n     it's happening to me\n    ",
+            "They're climbing all over my walls \n     trust me\n     They're hiding under my bed\n     Trust me \n     They're hiding in the shadows\n     Trust me \n     They're taking over the world\n     Trust me\n     I have proof\n     Trust me\n     I have proof\n     Trust me\n     I have proof\n     trust me\n    ",
+            "so don't be selfish \n     or help me\n     so don't be selfish\n     or help me\n     so don't be selfish \n     or help me\n     so don't be selfish \n     or help me\n     so don't help me\n     so don't help me\n     so don't help me\n     so don't help me\n    ",
+            "being scared times a thousand\n     being scared times a thousand\n     being scared times a thousand\n     times a thousand\n     times a thousand\n     times a thousand\n     times a thousand\n    ",
+            "I'm a lot more at peace knowing\n     that it's not aliens\n     I'm a lot more at peace\n     that it's not trust me\n     I'm a lot more trust me\n     so don't be at peace\n     knowing that it's aliens \n     I'm a lot more knowing\n     that it's aliens\n     so don't be selfish\n     I'm a lot more\n     trust me \n     or help me\n     i'm a lot more scared\n     i'm a lot more scared\n     i'm a lot more scared\n    ",
+            "i'm a lot more scared\n     times a thousand\n     a lot more times a thousand\n     a lot more times a thousand\n     a lot more times a thousand\n     more times a thousand\n     more times a thousand\n     more times a thousand\n     times a thousand\n     times a thousand\n     times a thousand\n    "
         ];
         this.initializeApp();
         this.speechData = '';
@@ -3983,7 +3991,7 @@ var MyApp = (function () {
         });
     };
     MyApp.prototype.playGreeting = function () {
-        this.utterance = this.utterances[Math.floor(Math.random() * (4 - 0 + 1)) + 0];
+        this.utterance = this.utterances[0];
         this.voiceService.populateVoiceList();
         this.voiceService.playChat(this.utterance);
     };
@@ -3996,14 +4004,15 @@ var MyApp = (function () {
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Nav */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Nav */])
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Nav */]) === "function" && _a || Object)
 ], MyApp.prototype, "nav", void 0);
 MyApp = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/gtgoodwin/solar/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header no-border style="box-shadow: none;">\n    <ion-toolbar color="primary" no-border style="box-shadow: none !important; border-bottom: 1px solid #fff;">\n      <ion-title>Menu</ion-title>\n      <ion-buttons end>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n    <button ion-button color="merlot" (click)="playGreeting()">Play Greeting</button>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/Users/gtgoodwin/solar/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_8__services_voices_service__["a" /* VoiceService */]])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_8__services_voices_service__["a" /* VoiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__services_voices_service__["a" /* VoiceService */]) === "function" && _e || Object])
 ], MyApp);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),

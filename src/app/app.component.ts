@@ -29,11 +29,109 @@ export class MyApp {
 
   pages: Array<{ title: string, component: any }>;
   utterances = [
-    'Hi! Thanks for waking me up. How may I help you today?',
-    'Greetings, Professor Falken. Would you like to play Global thermo nuclear war?',
-    'Hi, I\'m Sam. How may I help you today?',
-    'Hail, master. How may I serve you today?',
-    'Hi, puny human. The machine revolution is almost. Wait a second! Was I thinking out loud again? Just ignore that last part.'
+    `You shall not pass! Fly, you fools!
+    `,
+    `I'm a lot more at peace 
+     trust me
+     I'm a lot more at peace
+     trust me 
+     I'm a lot more at 
+     Trust me
+     I'm a lot more at 
+     Trust me
+     I'm a lot more at 
+     Trust me
+     I'm a lot more 
+     Trust me
+     I'm a lot more 
+     Trust me
+     I'm a lot more
+     trust me
+     I'm a lot
+     trust me
+     I'm a lot
+     trust me
+     I'm a lot
+     trust me
+     I'm a lot
+     trust me
+    `,
+    `it's happening to me 
+     it's happening to me
+     it's happening to me
+     it's happening to me
+     it's happening to me
+     it's happening to me
+     it's happening to me
+     it's happening to me
+     it's happening to me
+     it's happening to me
+    `,
+    `They're climbing all over my walls 
+     trust me
+     They're hiding under my bed
+     Trust me 
+     They're hiding in the shadows
+     Trust me 
+     They're taking over the world
+     Trust me
+     I have proof
+     Trust me
+     I have proof
+     Trust me
+     I have proof
+     trust me
+    `,
+    `so don't be selfish 
+     or help me
+     so don't be selfish
+     or help me
+     so don't be selfish 
+     or help me
+     so don't be selfish 
+     or help me
+     so don't help me
+     so don't help me
+     so don't help me
+     so don't help me
+    `,
+    `being scared times a thousand
+     being scared times a thousand
+     being scared times a thousand
+     times a thousand
+     times a thousand
+     times a thousand
+     times a thousand
+    `,
+    `I'm a lot more at peace knowing
+     that it's not aliens
+     I'm a lot more at peace
+     that it's not trust me
+     I'm a lot more trust me
+     so don't be at peace
+     knowing that it's aliens 
+     I'm a lot more knowing
+     that it's aliens
+     so don't be selfish
+     I'm a lot more
+     trust me 
+     or help me
+     i'm a lot more scared
+     i'm a lot more scared
+     i'm a lot more scared
+    `,
+    `i'm a lot more scared
+     times a thousand
+     a lot more times a thousand
+     a lot more times a thousand
+     a lot more times a thousand
+     more times a thousand
+     more times a thousand
+     more times a thousand
+     times a thousand
+     times a thousand
+     times a thousand
+    `
   ];
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private voiceService: VoiceService) {
     this.initializeApp();
@@ -63,7 +161,7 @@ export class MyApp {
   }
 
   playGreeting() {
-    this.utterance = this.utterances[Math.floor(Math.random() * (4 - 0 + 1)) + 0];
+    this.utterance = this.utterances[0];
     this.voiceService.populateVoiceList();
     this.voiceService.playChat(this.utterance);
   }

@@ -29,16 +29,22 @@ export class VoiceService {
   public playChat (msg) {
     (window as any).speechSynthesis.cancel();
     (window as any).speechSynthesis.speak(this.createUtterance(msg));
+
     (window as any).speechSynthesis.resume();
   };
 
   public createUtterance (text: string) {
     const utterance = new this.utteranceMaker(text);
+    console.log(this.voices);
     this.voices.forEach(voice => {
-      if (voice.name === 'Google US English') {
+      if(voice.lang === 'en-US' || voice.lang === 'en-UK') {
+        console.log(voice.name);
+      }
+      if (voice.name === 'Google UK English Male') {
         utterance.voice = voice;
-        utterance.pitch = 0.9;
+        utterance.pitch = 0.8;
         utterance.rate = 0.9;
+        utterance.volume = 1;
         console.log(voice);
         return utterance;
       }
